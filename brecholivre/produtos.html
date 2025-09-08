@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produtos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    :root {
+      --cor-primaria: #2e8b57;
+      --cor-secundaria: #f4f4f4;
+      --cor-texto: #333;
+      --cor-texto-secundario: #666;
+      --cor-hover: #1f6b4a;
+      --sombra: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--cor-secundaria);
+      color: var(--cor-texto);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      color: var(--cor-primaria);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    /* Categorias */
+    #categorias {
+      margin-bottom: 40px;
+    }
+
+    .categorias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .categoria-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: var(--sombra);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .categoria-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .categoria-card i {
+      font-size: 2.5rem;
+      color: var(--cor-primaria);
+      margin-bottom: 10px;
+    }
+
+    .categoria-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    /* Produtos */
+    .produtos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .produto-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: transform 0.3s ease;
+    }
+
+    .produto-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .produto-imagem {
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+    }
+
+    .produto-imagem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .produto-info {
+      padding: 15px;
+    }
+
+    .produto-info h3 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .produto-descricao {
+      font-size: 0.9rem;
+      color: var(--cor-texto-secundario);
+      margin-bottom: 10px;
+      min-height: 40px;
+    }
+
+    .produto-preco {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: var(--cor-primaria);
+      margin-bottom: 12px;
+    }
+
+    .btn-adicionar-carrinho {
+      background-color: var(--cor-primaria);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-adicionar-carrinho:hover {
+      background-color: var(--cor-hover);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .produto-info h3 {
+        font-size: 0.95rem;
+      }
+
+      .btn-adicionar-carrinho {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Catálogo de Produtos</h1>
+
+  <!-- Seção de Categorias -->
+  <section id="categorias">
+    <h2>Categorias</h2>
+    <div class="categorias-grid">
+      <div class="categoria-card" data-categoria="eletronicos">
+        <i class="fas fa-laptop"></i>
+        <h3>Eletrônicos</h3>
+      </div>
+      <div class="categoria-card" data-categoria="moveis">
+        <i class="fas fa-couch"></i>
+        <h3>Móveis</h3>
+      </div>
+      <div class="categoria-card" data-categoria="roupas">
+        <i class="fas fa-tshirt"></i>
+        <h3>Roupas</h3>
+      </div>
+      <div class="categoria-card" data-categoria="livros">
+        <i class="fas fa-book"></i>
+        <h3>Livros</h3>
+      </div>
+      <div class="categoria-card" data-categoria="esportes">
+        <i class="fas fa-bicycle"></i>
+        <h3>Esportes</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Produtos -->
+  <section id="todos-produtos">
+    <h2>Produtos</h2>
+    <div class="produtos-container">
+      <!-- Produto 1 -->
+      <div class="produto-card">
+        <div class="produto-imagem">
+          <img src="https://via.placeholder.com/200x150?text=Produto+1" alt="Produto 1">
+        </div>
+        <div class="produto-info">
+          <h3>Produto 1</h3>
+          <p class="produto-descricao">Descrição do Produto 1</p>
+          <p class="produto-preco">R$ 99,90</p>
+          <button class="btn-adicionar-carrinho">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+
+      <!-- Produto 2 -->
+      <div class="produto-card">
+        <div class="produto-imagem">
+          <img src="https://via.placeholder.com/200x150?text=Produto+2" alt="Produto 2">
+        </div>
+        <div class="produto-info">
+          <h3>Produto 2</h3>
+          <p class="produto-descricao">Descrição do Produto 2</p>
+          <p class="produto-preco">R$ 129,90</p>
+          <button class="btn-adicionar-carrinho">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+
+      <!-- Produto 3 -->
+      <div class="produto-card">
+        <div class="produto-imagem">
+          <img src="https://via.placeholder.com/200x150?text=Produto+3" alt="Produto 3">
+        </div>
+        <div class="produto-info">
+          <h3>Produto 3</h3>
+          <p class="produto-descricao">Descrição do Produto 3</p>
+          <p class="produto-preco">R$ 79,90</p>
+          <button class="btn-adicionar-carrinho">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+
+      <!-- Produto 4 -->
+      <div class="produto-card">
+        <div class="produto-imagem">
+          <img src="https://via.placeholder.com/200x150?text=Produto+4" alt="Produto 4">
+        </div>
+        <div class="produto-info">
+          <h3>Produto 4</h3>
+          <p class="produto-descricao">Descrição do Produto 4</p>
+          <p class="produto-preco">R$ 89,90</p>
+          <button class="btn-adicionar-carrinho">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

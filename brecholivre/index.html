@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brechó Livre</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <style>
+    :root {
+      --verde: #2e8b57;
+      --verde-escuro: #1f6b4a;
+      --cinza: #666;
+      --cinza-claro: #f4f4f4;
+      --branco: #fff;
+      --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--cinza-claro);
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: var(--branco);
+      box-shadow: var(--sombra);
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      color: var(--verde);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+    }
+
+    .user-actions a {
+      margin-left: 15px;
+      font-size: 14px;
+    }
+
+    .produtos-section {
+      padding: 40px 20px;
+    }
+
+    .produtos-section h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: var(--verde);
+      text-align: center;
+    }
+
+    .produtos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .produto-card {
+      background: var(--branco);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: transform 0.3s ease;
+    }
+
+    .produto-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .produto-imagem img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .produto-info {
+      padding: 15px;
+    }
+
+    .produto-info h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .produto-descricao {
+      font-size: 13px;
+      color: var(--cinza);
+      margin-bottom: 10px;
+    }
+
+    .produto-preco {
+      color: var(--verde);
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .btn-detalhes {
+      background: var(--verde);
+      color: var(--branco);
+      padding: 8px 10px;
+      width: 100%;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .btn-detalhes:hover {
+      background: var(--verde-escuro);
+    }
+
+    footer {
+      background-color: var(--branco);
+      padding: 30px 20px;
+      border-top: 1px solid #ddd;
+      margin-top: 40px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer h3 {
+      color: var(--verde);
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>Brechó Livre</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="lojavirtual.html">Loja Virtual</a></li>
+        <li><a href="afiliado.html">Afiliado</a></li>
+      </ul>
+    </nav>
+    <div class="user-actions">
+      <a href="login.html"><i class="fas fa-user"></i> Entrar</a>
+      <a href="carrinho.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="produtos-section">
+      <h2>Produtos</h2>
+      <div class="produtos-container">
+
+        <div class="produto-card">
+          <div class="produto-imagem">
+            <img src="https://via.placeholder.com/200x150?text=Notebook" alt="Notebook Dell i5" />
+          </div>
+          <div class="produto-info">
+            <h3>Notebook Dell i5</h3>
+            <p class="produto-descricao">8GB RAM, SSD 256GB, usado</p>
+            <p class="produto-preco">R$ 1.299,90</p>
+            <button class="btn-detalhes"><i class="fas fa-info-circle"></i> Detalhes</button>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-imagem">
+            <img src="https://via.placeholder.com/200x150?text=Sofá" alt="Sofá 3 Lugares" />
+          </div>
+          <div class="produto-info">
+            <h3>Sofá 3 Lugares</h3>
+            <p class="produto-descricao">Tecido antimanchas, ótimo estado</p>
+            <p class="produto-preco">R$ 899,00</p>
+            <button class="btn-detalhes"><i class="fas fa-info-circle"></i> Detalhes</button>
+          </div>
+        </div>
+
+        <div class="produto-card">
+          <div class="produto-imagem">
+            <img src="https://via.placeholder.com/200x150?text=Jaqueta" alt="Jaqueta Jeans" />
+          </div>
+          <div class="produto-info">
+            <h3>Jaqueta Jeans</h3>
+            <p class="produto-descricao">Tamanho M, pouco uso</p>
+            <p class="produto-preco">R$ 79,90</p>
+            <button class="btn-detalhes"><i class="fas fa-info-circle"></i> Detalhes</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Brechó Livre</h3>
+        <p>Compra e venda de produtos usados. Promovendo sustentabilidade e economia circular.</p>
+      </div>
+      <div>
+        <h3>Contato</h3>
+        <p><i class="fas fa-envelope"></i> contato@reusa.com</p>
+        <p><i class="fas fa-phone"></i> (11) 98765-4321</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Brechó Livre. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
