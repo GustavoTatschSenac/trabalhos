@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Alunos</h1>
+        <p>Clique no botão abaixo para iniciar o cadastro dos alunos e calcular suas médias.</p>
+        <button onclick="iniciarCadastro()">Iniciar Cadastro</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularMedia(n1, n2) {
+            return (parseFloat(n1) + parseFloat(n2)) / 2;
+        }
+
+        function iniciarCadastro() {
+            // Limpar resultados anteriores
+            document.getElementById("resultado").innerHTML = "";
+            
+            // Solicitar quantidade de alunos
+            let qtdAlunos;
+            while (true) {
+                qtdAlunos = prompt("Quantos alunos deseja cadastrar?");
+                qtdAlunos = parseInt(qtdAlunos);
+                
+                if (isNaN(qtdAlunos) || qtdAlunos <= 0) {
+                    alert("Por favor, digite um número válido maior que zero.");
+                } else {
+                    break;
+                }
+            }
+            
+            // Cadastrar cada aluno
+            for (let i = 1; i <= qtdAlunos; i++) {
+                let nome, nota1, nota2;
+                
+                // Solicitar nome do aluno
+                while (true) {
+                    nome = prompt(`Digite o nome do aluno ${i}:`);
+                    if (nome === null || nome.trim() === "") {
+                        alert("O nome não pode estar vazio. Por favor, digite novamente.");
+                    } else {
+                        break;
+                    }
+                }
+                
+                // Solicitar nota 1
+                while (true) {
+                    nota1 = prompt(`Digite a primeira nota de ${nome}:`);
+                    nota1 = parseFloat(nota1.replace(",", "."));
+                    
+                    if (isNaN(nota1) || nota1 < 0 || nota1 > 10) {
+                        alert("Por favor, digite uma nota válida entre 0 e 10.");
+                    } else {
+                        break;
+                    }
+                }
+                
+                // Solicitar nota 2
+                while (true) {
+                    nota2 = prompt(`Digite a segunda nota de ${nome}:`);
+                    nota2 = parseFloat(nota2.replace(",", "."));
+                    
+                    if (isNaN(nota2) || nota2 < 0 || nota2 > 10) {
+                        alert("Por favor, digite uma nota válida entre 0 e 10.");
+                    } else {
+                        break;
+                    }
+                }
+                
+                // Calcular média e situação
+                const media = calcularMedia(nota1, nota2);
+                const situacao = media >= 6 ? "Aprovado" : "Reprovado";
+                
+                // Exibir resultado na tela
+                const resultadoDiv = document.getElementById("resultado");
+                resultadoDiv.innerHTML += `
+                    <div class="aluno-card">
+                        <h3>Aluno: ${nome}</h3>
+                        <p>Nota 1: ${nota1.toFixed(2)}</p>
+                        <p>Nota 2: ${nota2.toFixed(2)}</p>
+                        <p>Média: ${media.toFixed(2)}</p>
+                        <p class="${situacao.toLowerCase()}">Situação: ${situacao}</p>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
