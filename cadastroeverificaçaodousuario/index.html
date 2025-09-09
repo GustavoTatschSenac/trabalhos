@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Verificação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+    let nome=prompt("Digite seu nome");
+let idade= parseInt(prompt("Digite sua idade"));
+let possuiCadastro=true;
+
+if(idade < 12){
+    alert("idade insuficiente")
+}
+else if(idade>=12 && idade<17 && possuiCadastro === true){
+    alert("acesso permitido com restrições");
+}
+
+else if(idade>=18 || possuiCadastro === true){
+    alert("acesso permitido");
+}
+
+alert("resultado"+nome);
+alert("resultado"+idade);
+alert("resultado"+possuiCadastro);
+
+</script>
+</body>
+</html>
